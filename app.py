@@ -38,11 +38,14 @@ def process_image(input_image):
 def process_image_on_gpu(pil_image):
     return aura_sr.upscale_4x(pil_image)
     
-title = """<h1 align="center">AuraSR - An open reproduction of the GigaGAN Upscaler from fal.ai</h1>
+title = """<h1 align="center">AuraSR</h1>
+<p><center>Upscales your images to x4</center></p>
 <p><center>
 <a href="https://blog.fal.ai/introducing-aurasr-an-open-reproduction-of-the-gigagan-upscaler-2/" target="_blank">[Blog Post]</a>
 <a href="https://huggingface.co/fal-ai/AuraSR" target="_blank">[Model Page]</a>
 </center></p>
+<br/>
+<p>This is an open reproduction of the GigaGAN Upscaler from fal.ai</p>
 """
 
 with gr.Blocks() as demo:
@@ -52,7 +55,7 @@ with gr.Blocks() as demo:
     with gr.Row():
         with gr.Column(scale=1):
             input_image = gr.Image(label="Input Image", type="numpy")
-            process_btn = gr.Button("Upscale Image")
+            process_btn = gr.Button(value="Upscale Image", variant = "primary")
         with gr.Column(scale=1):
             output_slider = ImageSlider(label="Before / After", type="numpy")
 
