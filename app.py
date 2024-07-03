@@ -19,7 +19,7 @@ aura_sr = AuraSR.from_pretrained("fal-ai/AuraSR")
 # Restore original torch.load
 torch.load = original_load
 
-@spaces.GPU
+@spaces.GPU(duration=419)
 def process_image(input_image):
     if input_image is None:
         return None
